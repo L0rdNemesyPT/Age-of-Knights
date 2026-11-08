@@ -24,10 +24,14 @@ Humanos, Orcs, Elfos, Goblins e Anões — cada uma com bónus próprios.
 |---|---|---|---|
 | Lanceiro | I | Cavalaria | Arqueiro, Espadachim |
 | Espadachim | I | Lanceiro, edifícios | Besteiro, Cavalaria |
+| Espadachim Longo | II | Espadachim, Lanceiro (golpe em área) | Arqueiro, Besteiro |
 | Arqueiro | I | Lanceiro, Mago | Cavalaria, Espadachim |
 | Besteiro | II | Espadachim | Mago, Cavalaria |
 | Espadachim a Cavalo | II | Arqueiro, Besteiro, Mago | Lanceiro |
 | Mago | III | Besteiro, grupos (dano em área) | Cavalaria, Arqueiro |
+
+## Muralhas e portões
+Muralhas de madeira (Era I) e de pedra (Era II), com o estilo de cada raça. Os portões deixam passar as tuas tropas mas não os inimigos — se não houver caminho, eles partem a muralha.
 
 ## Ferreiro
 Melhora as tropas (ataque corpo-a-corpo, arcos e bestas, armaduras, magia e têmpera das armas) e os aldeões (ferramentas, mochilas e martelos). Cada melhoria tem 3 níveis; os níveis 2 e 3 precisam da Era II e Era III.
@@ -35,6 +39,11 @@ Melhora as tropas (ataque corpo-a-corpo, arcos e bestas, armaduras, magia e têm
 ## Armas
 Em combate as armas podem partir-se. A unidade desarmada luta à murro e vai buscar a arma de um corpo caído ou rouba-a ao inimigo. A arma decide o estilo de luta (ex.: cavaleiro com arco = arqueiro a cavalo). Os corpos desaparecem ao fim de 30 segundos.
 
+## Interface
+Barra de baixo com Construir, Aldeões, Exército, Base e Menu. Ícones e efeitos (sangue, fumo, pó, fogo, magia) em pixel art; o sangue pode ser desligado no Menu.
+
 ## Ficheiros
 - `index.html` — o jogo completo
-- `sprites/` — sprites das unidades, edifícios, recursos e terreno
+- `sprites/` — sprites das unidades, edifícios, muralhas, recursos e terreno
+- `icons/` — ícones da interface
+- `fx/` — efeitos visuais
