@@ -16,6 +16,9 @@ Fácil, Moderada ou Difícil — escolhe no início e muda a qualquer momento no
 - **Moderada:** raids em grupo que evitam as tuas defesas e escolhem alvos com vantagem.
 - **Difícil:** raids maiores que contrariam o teu exército, caçam aldeões e recuam quando perdem.
 
+## Mods
+No ecrã inicial podes ligar mods (combináveis): ×3 recursos coletados, ×3 população dada pelas casas (máx. 200) e ×3 velocidade de construção.
+
 ## Controlos
 **Telemóvel:** toca para selecionar e dar ordens · toque longo + arrastar = seleção em caixa · pinça = zoom.
 

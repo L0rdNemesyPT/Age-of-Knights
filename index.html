@@ -133,6 +133,12 @@ body.desk .gb kbd{display:block;position:absolute;top:3px;left:4px;font:700 10px
   .gb{width:calc(20% - 5px)}.gi{height:34px}.gim{max-height:34px}
   #mm{width:84px;height:84px}
 }
+
+.modrow{display:flex;gap:8px;justify-content:center}
+.md{flex:1;max-width:170px;border-radius:12px;border:1px solid #8a6a3a;background:linear-gradient(#2e2318,#1b140e);color:#fff;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px}
+.md img{width:30px;height:30px;object-fit:contain}.md b{font-size:13px}.md small{font-size:10px;opacity:.8;text-align:center}
+.mdt{font-size:11px;font-weight:800;margin-top:3px;padding:1px 8px;border-radius:10px;background:#0006;color:#bbb}
+.md.on{border-color:#7fc25a;box-shadow:0 0 0 2px #7fc25a55;background:linear-gradient(#2f4d22,#1b2e14)}.md.on .mdt{background:#2f5d22;color:#fff}
 </style>
 </head>
 <body>
@@ -161,6 +167,7 @@ body.desk .gb kbd{display:block;position:absolute;top:3px;left:4px;font:700 10px
   <div class="tag">Preview — constrói a tua cidade, explora o mundo e destrói os acampamentos inimigos</div>
   <div class="races" id="races"></div>
   <div class="dlab">Dificuldade</div><div class="diffrow" id="diffs"></div><div class="ddesc" id="ddesc"></div>
+  <div class="dlab">Mods</div><div class="modrow" id="mods"></div>
   <button class="big" id="bstart">Começar</button>
   <div class="help" id="helptxt">
     <b>Como jogar</b><br>
@@ -177,6 +184,7 @@ body.desk .gb kbd{display:block;position:absolute;top:3px;left:4px;font:700 10px
     • <b>Telemóvel:</b> toca para selecionar e dar ordens · <b>toque longo + arrastar</b> = seleção em caixa · pinça = zoom.<br>
     • <b>PC (como no Age of Empires):</b> botão esquerdo seleciona (arrastar = caixa, Shift = juntar, duplo clique = todos iguais) · <b>botão direito</b> dá ordens (mover, atacar, recolher, construir, ponto de encontro) · <b>WASD</b>/setas ou rato na borda move a câmara (Shift = rápido) · roda = zoom · botão do meio = arrastar mapa.<br>
     • <b>Teclas:</b> B construir · H castelo · . aldeão parado · , tropa parada · Ctrl+1–9 criar grupo · 1–9 escolher grupo (2× = ir lá) · Espaço = ir à seleção · Q E R T F G Z X C V = botões do painel · Tab = categoria · I = info · Delete = apagar · P/F3 pausa · Esc cancelar/menu. Ao construir: Shift+clique para pôr vários.<br>
+    • <b>Mods</b> (no ecrã inicial): ×3 recursos, ×3 população das casas e ×3 velocidade de construção — combina como quiseres.<br>
     • <img class="ii" src="icons/trophy.png"> <b>Objetivo:</b> destruir 12 acampamentos. Perdes se o Centro da Cidade cair.
   </div>
 </div></div>
@@ -189,7 +197,7 @@ body.desk .gb kbd{display:block;position:absolute;top:3px;left:4px;font:700 10px
 
 <div id="menuov" class="ov hidden"><div class="box">
   <h1>Menu</h1>
-  <div class="mstats" id="mstats"></div>
+  <div class="mstats" id="mstats"></div><div class="mstats" id="mmods"></div>
   <button class="big" id="bResume">Continuar</button>
   <div class="dlab">Dificuldade</div><div class="diffrow" id="diffs2"></div><div class="ddesc" id="ddesc2"></div>
   <div class="opt"><span><img class="si" src="fx/blood2.png" alt=""> Sangue</span><button id="bBlood" class="tog">Ligado</button></div>
@@ -250,6 +258,8 @@ const UPG={
 };
 const UPG_MIL=['melee','ranged','armor','arcane','temper'],UPG_VIL=['tools','carry','build'];
 let UP={};
+const MODDEF={res:{nome:'×3 Recursos',desc:'Cada entrega dá o triplo',ic:'gold'},pop:{nome:'×3 População',desc:'Casas dão +15 (máx. 200)',ic:'pop'},build:{nome:'×3 Construção',desc:'Constrói 3× mais rápido',ic:'hammer'}};
+const MODS={res:false,pop:false,build:false};try{const m=JSON.parse(localStorage.getItem('aok_mods')||'{}');for(const k in MODS)MODS[k]=!!m[k];}catch(e){}
 const ERAS={2:{cost:{f:400,g:200},time:25},3:{cost:{f:800,g:500,s:300},time:35}};
 const ERANAME=['','Era I','Era II','Era III'];
 
@@ -425,7 +435,7 @@ function ret(u,dt){
   if(!u.drop||u.drop.dead)u.drop=nearestDrop(u);
   if(!u.drop){u.state='idle';return;}
   if(dEnt(u,u.drop)<=8){
-    const a=u.carry;R[u.carryT]+=a;fx.push({x:u.x,y:u.y-14,txt:'+'+Math.round(a),icon:RICON[u.carryT],t:1.2});
+    const a=u.carry*(MODS.res?3:1);R[u.carryT]+=a;fx.push({x:u.x,y:u.y-14,txt:'+'+Math.round(a),icon:RICON[u.carryT],t:1.2});
     u.carry=0;u.state=u.after||'idle';
     if(u.state==='farm'&&(!u.farm||u.farm.dead))u.state='idle';
   }else moveTo(u,u.drop.x,u.drop.y,dt,u.drop);
@@ -435,7 +445,7 @@ function buildSt(u,dt){
   if(b.built){if(b.type==='quinta'){u.state='farm';u.farm=b;}else if(b.grp){let nb=null,bd=1e9;for(const o of blds)if(o.grp===b.grp&&!o.built&&!o.dead){const d=Math.hypot(o.x-u.x,o.y-u.y);if(d<bd){bd=d;nb=o;}}if(nb)u.build=nb;else u.state='idle';}else u.state='idle';return;}
   if(dEnt(u,b)>7){moveTo(u,b.x,b.y,dt,b);return;}
   const d=BDEF[b.type];u.work=true;
-  const bs=1+0.3*(UP.build||0);b.prog+=dt*bs;b.hp=Math.min(b.maxhp,b.hp+b.maxhp*0.9*dt*bs/d.time);
+  const bs=(1+0.3*(UP.build||0))*(MODS.build?3:1);b.prog+=dt*bs;b.hp=Math.min(b.maxhp,b.hp+b.maxhp*0.9*dt*bs/d.time);
   if(b.prog>=d.time){b.built=true;if(!d.wall)toast(d.nome+(FEM[b.type]?' construída':' construído'),'','build');else if(b.grp&&!blds.some(o=>o.grp===b.grp&&!o.built&&!o.dead))toast('Muralha concluída!','','build');else if(d.gate)toast(d.nome+' construído','','build');panelKey='';}
 }
 
@@ -476,7 +486,7 @@ function killEnt(t){
 }
 
 /* ---------- buildings ---------- */
-function popCap(){let c=0;for(const b of blds)if(b.team===0&&b.built&&!b.dead)c+=BDEF[b.type].pop||0;return Math.min(c,80);}
+function popCap(){let c=0;for(const b of blds)if(b.team===0&&b.built&&!b.dead)c+=(BDEF[b.type].pop||0)*(b.type==='casa'&&MODS.pop?3:1);return Math.min(c,MODS.pop?200:80);}
 const notUnit=it=>it.type.startsWith('era')||it.type.startsWith('up:');
 function popUsed(withQ){let c=0;for(const u of units)if(u.team===0&&!u.dead)c++;if(withQ)for(const b of blds)if(b.team===0)for(const it of b.q)if(!notUnit(it))c++;return c;}
 function updBld(b,dt){
@@ -1289,8 +1299,12 @@ $('bBase').onclick=()=>{const tc=playerTC();if(tc){centerOn(tc.x,tc.y);sel=[];se
 function renderDiffs(){for(const [id,dd] of [['diffs','ddesc'],['diffs2','ddesc2']]){const el=$(id);if(!el)continue;el.innerHTML=Object.keys(DIFFS).map(k=>`<button class="db ${k===diff?'sel':''}" data-d="${k}">${ic(DIFFS[k].sh,'dbi')}${DIFFS[k].nome}</button>`).join('');$(dd).textContent=DF().desc;}}
 for(const id of ['diffs','diffs2'])$(id).addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(b)setDiff(b.dataset.d,id==='diffs2');});
 renderDiffs();
+function renderMods(){$('mods').innerHTML=Object.keys(MODDEF).map(k=>`<button class="md ${MODS[k]?'on':''}" data-m="${k}"><img src="icons/${MODDEF[k].ic}.png" alt=""><b>${MODDEF[k].nome}</b><small>${MODDEF[k].desc}</small><span class="mdt">${MODS[k]?'Ligado':'Desligado'}</span></button>`).join('');}
+$('mods').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b)return;MODS[b.dataset.m]=!MODS[b.dataset.m];try{localStorage.setItem('aok_mods',JSON.stringify(MODS));}catch(_){}renderMods();});
+renderMods();
 function renderMenu(){const m=Math.floor(gt/60),s=Math.floor(gt%60);
   $('mstats').innerHTML=`<span>${ic('crown','si')}${ERANAME[era]}</span><span>${ic('time','si')}${m}:${s<10?'0':''}${s}</span><span>${ic('camp','si')}${campsKilled}/${GOAL}</span><span>${ic(DF().sh,'si')}${DF().nome}</span>`;
+  const am=Object.keys(MODS).filter(k=>MODS[k]);$('mmods').innerHTML=am.length?'Mods: '+am.map(k=>`<span>${ic(MODDEF[k].ic,'si')}${MODDEF[k].nome}</span>`).join(''):'';
   $('bBlood').textContent=SET.blood?'Ligado':'Desligado';$('bBlood').classList.toggle('on',SET.blood);renderDiffs();}
 $('bMenu').onclick=()=>{if(!running)return;paused=true;renderMenu();$('help2').innerHTML=$('helptxt').innerHTML;$('menuov').classList.remove('hidden');};
 $('bResume').onclick=()=>{$('menuov').classList.add('hidden');paused=false;};
@@ -1319,7 +1333,7 @@ function renderRaces(){$('races').innerHTML=Object.keys(RACES).map(k=>{const r=R
 $('races').addEventListener('click',e=>{const c=e.target.closest('[data-r]');if(c){chosen=c.dataset.r;renderRaces();}});
 renderRaces();
 function startGame(){$('start').classList.add('hidden');$('end').classList.add('hidden');['top','mm','bar','alerts'].forEach(i=>$(i).classList.remove('hidden'));
-  resize();cam.z=clamp(Math.min(VW,VH)/400,0.8,1.3);init(chosen);build2D();running=true;buildOpen=false;infoOpen=false;alerts=[];renderAlerts();panelKey='';toast('Bem-vindo, líder dos '+RACES[chosen].nome+'! Recolhe recursos e prepara-te.','','castle');}
+  resize();cam.z=clamp(Math.min(VW,VH)/400,0.8,1.3);init(chosen);build2D();running=true;buildOpen=false;infoOpen=false;alerts=[];renderAlerts();panelKey='';toast('Bem-vindo, líder dos '+RACES[chosen].nome+'! Recolhe recursos e prepara-te.','','castle');{const am=Object.keys(MODS).filter(k=>MODS[k]);if(am.length)toast('Mods ativos: '+am.map(k=>MODDEF[k].nome).join(', '),'','up');}}
 $('bstart').onclick=startGame;
 $('bagain').onclick=()=>{$('end').classList.add('hidden');$('start').classList.remove('hidden');running=false;['top','mm','bar','alerts','panel'].forEach(i=>$(i).classList.add('hidden'));};
 
