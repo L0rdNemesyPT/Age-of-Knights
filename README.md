@@ -79,3 +79,10 @@ Barra de baixo com Construir, Aldeões, Exército, Base e Menu. Ícones e efeito
 - Ovelhas, veados e javalis dão comida; lobos selvagens são perigosos.
 - Seleciona aldeões e toca num animal para caçar; depois recolhem a carne da carcaça (mais rápido, mas estraga-se com o tempo).
 - Toca numa árvore, mina, pedreira, arbusto ou carcaça para ver quanto resta (no PC basta passar o rato por cima).
+
+## Tudo automático
+- **Aldeões com profissão** (Comida, Madeira, Ouro, Pedra, Construtor): escolhes no Centro e trabalham sozinhos. Muda profissões no botão Aldeões com + e −.
+- **Construção automática**: o jogo escolhe um bom sítio (botão Outro sítio para alternativas). Limites: Casa 20, Quinta 8, Armazém 3, Quartel 2, Ferreiro 1, Academia 1, Torre 8.
+- **Muralhar a base**: muralha com 4 portões à volta da base, conforme os recursos (madeira ou pedra).
+- **Exército**: grupo de Defesa (patrulha a cidade) e grupo de Ataque (ataca o acampamento mais próximo ou o escolhido, recua se estiver a perder).
+- No PC continuas a poder dar ordens com o rato.
