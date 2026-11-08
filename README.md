@@ -29,6 +29,9 @@ Humanos, Orcs, Elfos, Goblins e Anões — cada uma com bónus próprios.
 | Espadachim a Cavalo | II | Arqueiro, Besteiro, Mago | Lanceiro |
 | Mago | III | Besteiro, grupos (dano em área) | Cavalaria, Arqueiro |
 
+## Armas
+Em combate as armas podem partir-se. A unidade desarmada luta à murro e vai buscar a arma de um corpo caído ou rouba-a ao inimigo. A arma decide o estilo de luta (ex.: cavaleiro com arco = arqueiro a cavalo). Os corpos desaparecem ao fim de 30 segundos.
+
 ## Ficheiros
 - `index.html` — o jogo completo
 - `sprites/` — sprites das unidades, edifícios, recursos e terreno
