@@ -10,6 +10,12 @@ Abre o `index.html` num browser (ou usa o GitHub Pages deste repositório). Func
 - Aldeões recolhem madeira, comida, ouro e pedra e constroem edifícios.
 - Treina tropas no Quartel e destrói 12 acampamentos inimigos para vencer.
 
+## Dificuldade
+Fácil, Moderada ou Difícil — escolhe no início e muda a qualquer momento no menu ☰.
+- **Fácil:** raids pequenas e espaçadas.
+- **Moderada:** raids em grupo que evitam as tuas defesas e escolhem alvos com vantagem.
+- **Difícil:** raids maiores que contrariam o teu exército, caçam aldeões e recuam quando perdem.
+
 ## Raças
 Humanos, Orcs, Elfos, Goblins e Anões — cada uma com bónus próprios.
 
