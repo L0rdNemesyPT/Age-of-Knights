@@ -68,3 +68,9 @@ Barra de baixo com Construir, Aldeões, Exército, Base e Menu. Ícones e efeito
 - `sprites/` — sprites das unidades, edifícios, muralhas, recursos e terreno
 - `icons/` — ícones da interface
 - `fx/` — efeitos visuais
+
+## Academia e Heróis
+- **Academia** (Era II): treina 1 herói de cada vez — cada raça tem 2 heróis.
+- Heróis sobem de nível (até 5), dão uma **aura** às tropas próximas e têm um **poder especial** (automático em combate ou no botão / tecla Q).
+- Se o herói morrer, revive na Academia ao fim de 60s por metade do preço.
+- Acampamentos inimigos fortes também geram heróis, em todas as dificuldades.
