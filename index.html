@@ -144,16 +144,77 @@ body.desk .gb kbd{display:block;position:absolute;top:3px;left:4px;font:700 10px
 .md img{width:30px;height:30px;object-fit:contain}.md b{font-size:13px}.md small{font-size:10px;opacity:.8;text-align:center}
 .mdt{font-size:11px;font-weight:800;margin-top:3px;padding:1px 8px;border-radius:10px;background:#0006;color:#bbb}
 .md.on{border-color:#7fc25a;box-shadow:0 0 0 2px #7fc25a55;background:linear-gradient(#2f4d22,#1b2e14)}.md.on .mdt{background:#2f5d22;color:#fff}
+/* ===== UI kit theme ===== */
+#top,#bar{background:none!important;border:12px solid transparent!important;border-width:7px 13px!important;border-image:url(ui/topbar.png) 14 26 fill/7px 13px stretch!important;box-shadow:0 3px 8px #0009!important;backdrop-filter:none!important;image-rendering:pixelated}
+#top{padding:2px 4px!important;padding-top:calc(2px + env(safe-area-inset-top))!important}
+#top .res{position:relative;cursor:pointer;padding-right:12px;color:#fff6dc;text-shadow:0 2px 0 #000,0 0 3px #000}
+.wk{position:absolute;right:-4px;top:-6px;min-width:17px;height:17px;padding:0 3px;border-radius:9px;background:#3a2414;border:1.5px solid #c9a24a;color:#ffe9a8;font-size:10px;line-height:14px;text-align:center;font-weight:800;text-shadow:none;box-shadow:0 1px 2px #000}
+.wk::before{content:'';position:absolute;left:-9px;top:1px;width:11px;height:11px;background:url(icons/idle.png) center/contain no-repeat}
+.wk.hm::before{background-image:url(icons/build.png)}
+.wk.zero{opacity:.45}
+#bar{padding:2px 2px calc(2px + env(safe-area-inset-bottom))!important}
+#bar button{color:#fff6dc;text-shadow:0 1px 0 #000;transition:transform .12s}
+#bar button.on{background:none;box-shadow:none;transform:translateY(-3px)}
+#bar button.on img{filter:drop-shadow(0 0 6px #ffd23a) drop-shadow(0 2px 0 #000)}
+#bar button.on span{color:#ffd23a}
+#bar button:active{transform:scale(.92)}
+#panel{background:none!important;backdrop-filter:none!important;box-shadow:0 -4px 16px #000a!important;border:20px solid transparent!important;border-image:url(ui/frame.png) 60 fill/20px stretch!important;border-radius:0!important;padding:2px 4px 4px!important;color:#3b2412;image-rendering:auto;overflow-x:hidden}
+#panel.pop{animation:slideup .22s ease-out}
+@keyframes slideup{from{transform:translateY(30px);opacity:.3}to{transform:none;opacity:1}}
+#panel.min>*:not(.ph):not(.grip){display:none!important}#panel.min .grip i{background:#ffd23a}
+.grip{display:block;margin:-6px auto 2px;width:90px;height:16px;border:none;background:none;padding:0}
+.grip i{display:block;margin:4px auto 0;width:40px;height:5px;border-radius:3px;background:#e8c98a;box-shadow:0 1px 0 #000}
+.pn>b{align-self:flex-start;max-width:100%;color:#fff!important;font-size:14px!important;text-shadow:0 1px 0 #6a0d0d,0 0 2px #000;border:solid transparent;border-width:3px 20px 7px;border-image:url(ui/ribbon.png) 8 62 18 62 fill/3px 20px 7px stretch;padding:1px 2px 0;margin-left:-6px}
+.pn small{color:#4a2e16;opacity:1!important;font-weight:600}
+.pn small .cst.no,.cst.no{color:#d8382a;font-weight:800}
+.hpb{background:#5a3a1a55;border:1px solid #7a5530}
+.ib{border:none!important;background:url(ui/badge.png) center/contain no-repeat!important;padding:9px!important;width:40px;height:40px;flex:0 0 40px;filter:drop-shadow(0 2px 1px #0007)}
+.ib:active{transform:scale(.9)}
+.pinfo{background:#8a5a2a1c!important;border:1px dashed #a07a4a;color:#3b2412}
+.pinfo b{color:#7a2a0a}
+.sec{color:#5a3412}
+.empty{color:#7a5a3a}
+.gb{border:8px solid transparent!important;border-image:url(ui/btn.png) 16 fill/8px stretch!important;background:none!important;border-radius:0!important;padding:0 1px 1px!important;color:#fff6dc;text-shadow:0 1px 0 #000,0 0 2px #000;filter:drop-shadow(0 2px 1px #0006);transition:transform .1s}
+.gb:active{transform:scale(.94)}
+.gb.gok{border-image:url(ui/btnon.png) 16 fill/8px stretch!important}
+.gb.off{opacity:.55;filter:grayscale(.75) drop-shadow(0 2px 1px #0006)}
+.gb .gc{color:#fff6dc}.gb .cst.no{color:#ff8a7a}
+.gd{font-size:9.5px;line-height:1.1;text-align:center;color:#f1dcb0;opacity:.9}
+.gb.glow{animation:glow 1.4s ease-out}
+@keyframes glow{0%{filter:drop-shadow(0 0 0 #ffd23a)}30%{filter:drop-shadow(0 0 10px #ffd23a) brightness(1.3)}100%{filter:drop-shadow(0 2px 1px #0006)}}
+.grid.g3 .gb{width:calc(33.33% - 4px)}
+.grid.g3 .gi{height:50px}.grid.g3 .gim{max-height:50px;max-width:70px}
+.cntb{position:absolute;top:-6px;left:-14px;background:#3a2414;border:1.5px solid #c9a24a;color:#ffe9a8;border-radius:8px;font-size:9.5px;font-weight:800;padding:0 4px;text-shadow:none}
+.cntb.full{border-color:#e05a4a;color:#ff9a8a}
+.lk{top:-4px;right:-16px;color:#fff;text-shadow:0 1px 0 #000;font-size:11px}.lki{width:13px;height:18px}
+.tab{border:6px solid transparent!important;border-image:url(ui/tab.png) 12 fill/6px stretch!important;background:none!important;border-radius:0!important;color:#fff6dc;text-shadow:0 1px 0 #000;padding:2px!important}
+.tab.on{border-image:url(ui/tabon.png) 12 fill/6px stretch!important;color:#3a2006;text-shadow:0 1px 0 #ffe9a0}
+.jr{border:8px solid transparent!important;border-image:url(ui/card.png) 22 fill/8px stretch!important;background:none!important;border-radius:0!important;padding:0 4px!important;color:#3b2412}
+.jb{border:6px solid transparent!important;border-image:url(ui/btn.png) 16 fill/6px stretch!important;background:none!important;border-radius:0!important;color:#fff6dc;text-shadow:0 1px 0 #000;width:40px;height:36px;padding:0}
+.jb:active{transform:scale(.9)}
+.jc{color:#5a2a0a}
+.qw{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:#0000;box-shadow:inset 0 0 0 2px #7a5530}
+.qw .qi{height:24px;max-width:26px;border-radius:50%;background:#f3dfb4}
+#q0 .qi{background:#fff3d2}
+#qinfo{color:#7a2a0a;font-weight:700}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
+.col{display:flex;flex-direction:column;gap:4px;border:8px solid transparent;border-image:url(ui/card.png) 22 fill/8px stretch;padding:0 2px 2px;min-height:80px}
+.colh{font-weight:800;font-size:13px;display:flex;align-items:center;gap:4px;flex-wrap:wrap;color:#3b2412}.colh small{width:100%;font-weight:600;font-size:10.5px;color:#6a4a2a}
+.col.atk .colh{color:#8a1a0a}
+.arow{display:flex;align-items:center;gap:4px;border:5px solid transparent;border-image:url(ui/btn.png) 16 fill/5px stretch;background:none;color:#fff6dc;text-shadow:0 1px 0 #000;padding:0 2px;min-height:40px}
+.arow:active{transform:scale(.95)}
+.am{height:30px;width:28px;object-fit:contain}.an{flex:1;font-size:11px;font-weight:700;text-align:left;line-height:1.1}.ac{font-size:14px}.arr{width:20px;height:22px;image-rendering:pixelated}
+.toast{border-color:#c9a24a!important;background:#2a1a0ee6!important}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
 <div id="top" class="hidden">
-  <div class="res"><img src="icons/wood.png" alt=""><span id="rw">0</span></div>
-  <div class="res"><img src="icons/food.png" alt=""><span id="rf">0</span></div>
-  <div class="res"><img src="icons/gold.png" alt=""><span id="rg">0</span></div>
-  <div class="res"><img src="icons/stone.png" alt=""><span id="rs">0</span></div>
-  <div class="res"><img src="icons/pop.png" alt=""><span id="rp">0/0</span></div>
+  <div class="res" data-j="lenhador"><img src="icons/wood.png" alt=""><span id="rw">0</span><b class="wk" id="kw">0</b></div>
+  <div class="res" data-j="comida"><img src="icons/food.png" alt=""><span id="rf">0</span><b class="wk" id="kf">0</b></div>
+  <div class="res" data-j="ouro"><img src="icons/gold.png" alt=""><span id="rg">0</span><b class="wk" id="kg">0</b></div>
+  <div class="res" data-j="pedra"><img src="icons/stone.png" alt=""><span id="rs">0</span><b class="wk" id="ks">0</b></div>
+  <div class="res" data-j="construtor"><img src="icons/pop.png" alt=""><span id="rp">0/0</span><b class="wk hm" id="kb">0</b></div>
 </div>
 <canvas id="mm" class="hidden" width="116" height="116"></canvas>
 <div id="alerts" class="hidden"></div>
@@ -362,7 +423,7 @@ function costOf(type){
 const canPay=c=>Object.keys(c).every(k=>R[k]>=c[k]);
 function pay(c){for(const k in c)R[k]-=c[k];}
 function refund(c){for(const k in c)R[k]+=c[k];}
-const costTxt=c=>Object.keys(c).filter(k=>c[k]>0).map(k=>`<span class="cst"><img class="ii" src="icons/${RICON[k]}.png">${c[k]}</span>`).join(' ')||'grátis';
+const costTxt=c=>Object.keys(c).filter(k=>c[k]>0).map(k=>`<span class="cst${R&&R[k]<c[k]?' no':''}"><img class="ii" src="icons/${RICON[k]}.png">${c[k]}</span>`).join(' ')||'grátis';
 
 function spawnUnit(team,rc,type,x,y,lvl){
   const d=udef(rc,type);let hp=d.hp,spd=d.spd,range=d.range,atk=d.atk;
@@ -1506,13 +1567,15 @@ function counterLong(k){if(!WEAK[k])return '';return '<b>Forte contra:</b> '+Obj
 function bFile(k){const d=BDEF[k];return d.wall?'w_'+race+'_'+d.wall+(d.gate?'Gate':'Post'):'b_'+race+'_'+bImg(k);}
 function bImg(k){return SMETA.blds[race]&&SMETA.blds[race][k]?k:'armazem';}
 function unitIcon(type){return UDEF[type].icon;}
+const BDESC={casa:'+5 população',quinta:'Comida para cultivar',armazem:'Entrega de recursos',quartel:'Treina tropas',ferreiro:'Melhora tropas e aldeões',academia:'Treina 1 herói',torre:'Dispara aos inimigos'};
 const BTABS={eco:{nome:'Economia',ic:'food',list:['casa','quinta','armazem']},mil:{nome:'Militar',ic:'army',list:['quartel','ferreiro','academia']},def:{nome:'Defesa',ic:'castle',list:['torre','fort:w','fort:s']}};
 let buildOpen=false,buildTab='eco',infoOpen=false;
 const ROMAN=['','I','II','III'];
-function gbtn(act,img,label,cost,opts){opts=opts||{};return `<button class="gb ${opts.off?'off':''} ${opts.cls||''}" data-a="${act}"><span class="gi">${img}${opts.lock?`<span class="lk">${ic('crown','lki')}${ROMAN[opts.lock]}</span>`:''}${opts.badge||''}</span><span class="gl">${label}</span>${cost?`<span class="gc">${cost}</span>`:''}</button>`;}
+function gbtn(act,img,label,cost,opts){opts=opts||{};return `<button class="gb ${opts.off?'off':''} ${opts.cls||''}" data-a="${act}"><span class="gi">${img}${opts.lock?`<span class="lk"><img class="lki" src="ui/lock.png" alt="">${ROMAN[opts.lock]}</span>`:''}${opts.badge||''}</span><span class="gl">${label}</span>${opts.desc?`<span class="gd">${opts.desc}</span>`:''}${cost?`<span class="gc">${cost}</span>`:''}</button>`;}
 function hpbar(f){return `<div class="hpb"><div style="width:${Math.max(0,Math.min(100,f*100))}%;background:${f>0.5?'#6ee05a':f>0.25?'#f5c542':'#ef4444'}"></div></div>`;}
 function header(img,name,sub,f){return `<div class="ph">${img}<div class="pn"><b>${name}</b>${f!=null?hpbar(f):''}${sub?`<small>${sub}</small>`:''}</div><button class="ib" data-a="info">${ic('search','ibi')}</button><button class="ib" data-a="desel">${ic('no','ibi')}</button></div>`;}
 const STN={patrol:'a patrulhar',march:'a marchar',repair:'a reparar',hunt:'a caçar',idle:'parado',move:'a mover',attack:'a atacar',gather:'a recolher',farm:'na quinta',return:'a entregar',build:'a construir',loot:'a apanhar arma',flee:'a fugir'};
+let lastKind='',prevOff={},panelMin=false;
 function renderPanel(){
   const P=$('panel');let h='';
   if(buildMode){const d=BDEF[buildMode];let hint,okBtn='';
@@ -1524,11 +1587,11 @@ function renderPanel(){
     h=`<div class="ph"><img class="pt" src="sprites/${bFile(buildMode)}.png"><div class="pn"><b>${d.nome}</b><small>${hint}</small></div></div><div class="grid">${okBtn}${gbtn('cancelb',ic('no','gim'),'Cancelar','')}</div>`;}
   else if(buildOpen){
     h=`<div class="ph"><img class="pt" src="icons/build.png"><div class="pn"><b>Construir</b><small>O sítio é escolhido automaticamente e os Construtores tratam da obra.</small></div><button class="ib" data-a="closeb">${ic('no','ibi')}</button></div>`;
-    h+=`<div class="tabs">${Object.keys(BTABS).map(k=>`<button class="tab ${k===buildTab?'on':''}" data-a="tab:${k}">${ic(BTABS[k].ic,'tbi')}${BTABS[k].nome}</button>`).join('')}</div><div class="grid">`;
+    h+=`<div class="tabs">${Object.keys(BTABS).map(k=>`<button class="tab ${k===buildTab?'on':''}" data-a="tab:${k}">${ic(BTABS[k].ic,'tbi')}${BTABS[k].nome}</button>`).join('')}</div><div class="grid g3">`;
     for(const k of BTABS[buildTab].list){if(k.startsWith('fort:')){const m=k.slice(5),wk=m==='w'?'muro':'muroP',lock=m==='s'&&era<2?2:0;
-        h+=gbtn(lock?'lock:2':k,`<img class="gim" src="sprites/${bFile(m==='w'?'portao':'portaoP')}.png">`,'Muralhar'+(m==='w'?' (madeira)':' (pedra)'),costTxt(BDEF[wk].cost)+'<small>/troço</small>',{off:lock,lock});continue;}
+        h+=gbtn(lock?'lock:2':k,`<img class="gim" src="sprites/${bFile(m==='w'?'portao':'portaoP')}.png">`,'Muralhar'+(m==='w'?' (madeira)':' (pedra)'),costTxt(BDEF[wk].cost)+'<small>/troço</small>',{off:lock,lock,desc:'Anel + 4 portões'});continue;}
       const d=BDEF[k],lock=d.era&&era<d.era?d.era:0,lim=LIMITS[k],nb=lim?bCount(k):0;
-      h+=gbtn(lock?'lock:'+d.era:'build:'+k,`<img class="gim" src="sprites/${bFile(k)}.png">`,d.nome.replace('Muralha de ','Muro ').replace('Portão de ','Portão '),costTxt(d.cost),{off:lock||!canPay(d.cost)||lim&&nb>=lim,lock,badge:lim?`<span class="stars">${nb}/${lim}</span>`:''});}
+      h+=gbtn(lock?'lock:'+d.era:'build:'+k,`<img class="gim" src="sprites/${bFile(k)}.png">`,d.nome.replace('Muralha de ','Muro ').replace('Portão de ','Portão '),costTxt(d.cost),{off:lock||!canPay(d.cost)||lim&&nb>=lim,lock,desc:BDESC[k]||'',badge:lim?`<span class="cntb${nb>=lim?' full':''}">${nb}/${lim}</span>`:''});}
     h+='</div>';}
   else if(jobsOpen){const vs=units.filter(u=>u.team===0&&!u.dead&&u.type==='aldeao'),c=jobCounts(),idle=vs.filter(v=>v.state==='idle').length;
     h=`<div class="ph">${ic('idle','pt')}<div class="pn"><b>Aldeões (${vs.length})</b><small>Trabalham sozinhos. Usa + e − para mudar profissões.</small></div><button class="ib" data-a="closej">${ic('no','ibi')}</button></div><div class="jobs">`;
@@ -1537,9 +1600,10 @@ function renderPanel(){
   else if(armyOpen){const mil=units.filter(u=>u.team===0&&!u.dead&&u.grp),cnt=g=>{const c={};for(const u of mil)if(u.grp===g)c[u.type]=(c[u.type]||0)+1;return c;},D=cnt('def'),A=cnt('atk');
     const nd=Object.values(D).reduce((a,b)=>a+b,0),na=Object.values(A).reduce((a,b)=>a+b,0),st={rally:'a reunir-se',march:'a atacar',retreat:'a recuar',idle:'sem alvo'}[pSq.state]||'';
     const short=k=>unitName(k).replace('Espadachim a Cavalo','Cavaleiro').replace('Espadachim Longo','Esp. Longo').replace('Rei ','');
-    h=`<div class="ph">${ic('army','pt')}<div class="pn"><b>Exército (${mil.length})</b><small>Toca num tipo para o mudar de grupo.</small></div><button class="ib" data-a="closea">${ic('no','ibi')}</button></div>`;
-    h+=`<div class="sec">${ic('castle','ci')} Defesa — patrulha e protege a cidade (${nd})</div><div class="grid">${Object.keys(D).map(k=>gbtn('toatk:'+k,uThumb(k,'gim'),short(k),D[k]+'× → '+ic('sword','ci'))).join('')||'<small class="empty">vazio</small>'}</div>`;
-    h+=`<div class="sec">${ic('sword','ci')} Ataque — ${atkTarget?st:'sem acampamentos conhecidos'} (${na})</div><div class="grid">${Object.keys(A).map(k=>gbtn('todef:'+k,uThumb(k,'gim'),short(k),A[k]+'× → '+ic('castle','ci'))).join('')||'<small class="empty">vazio</small>'}</div>`;
+    h=`<div class="ph">${ic('army','pt')}<div class="pn"><b>Exército (${mil.length})</b><small>Toca numa linha para passar as tropas para o outro lado.</small></div><button class="ib" data-a="closea">${ic('no','ibi')}</button></div>`;
+    const row=(k,n,act,ar)=>`<button class="arow" data-a="${act}:${k}">${act==='todef'?`<img class="arr" src="ui/${ar}.png">`:''}${uThumb(k,'am')}<span class="an">${short(k)}</span><b class="ac">${n}</b>${act==='toatk'?`<img class="arr" src="ui/${ar}.png">`:''}</button>`;
+    h+=`<div class="cols"><div class="col"><div class="colh">${ic('castle','ci')} Defesa <b>${nd}</b><small>patrulha a cidade</small></div>${Object.keys(D).map(k=>row(k,D[k],'toatk','arrr')).join('')||'<small class="empty">vazio</small>'}</div>
+      <div class="col atk"><div class="colh">${ic('sword','ci')} Ataque <b>${na}</b><small>${atkTarget?st:'sem alvo conhecido'}</small></div>${Object.keys(A).map(k=>row(k,A[k],'todef','arrl')).join('')||'<small class="empty">vazio</small>'}</div></div>`;
     h+=`<div class="grid">${gbtn('toatk:all',ic('sword','gim'),'Todos atacar','')}${gbtn('todef:all',ic('castle','gim'),'Todos defender','')}${gbtn('pickcamp',ic('camp','gim'),'Escolher alvo',atkTarget?'Nv '+atkTarget.lvl+' '+dirFrom(atkTarget.x,atkTarget.y):'',{cls:pickCamp?'gok':''})}</div>`;}
   else if(sel.length){
     const vils=sel.filter(u=>u.type==='aldeao'),counts={};for(const u of sel)counts[u.type]=(counts[u.type]||0)+1;const types=Object.keys(counts);
@@ -1582,7 +1646,7 @@ function renderPanel(){
       else for(const k of d.train){const ud=udef(race,k),lock=ud.era&&era<ud.era?ud.era:0,c=costOf(k);h+=gbtn(lock?'lock:'+ud.era:'train:'+k,uThumb(k,'gim'),unitName(k).replace('Espadachim a Cavalo','Cavaleiro').replace('Espadachim Longo','Esp. Longo'),costTxt(c),{off:lock||!canPay(c),lock});}
       if(b.type==='centro'&&era<3){const c=ERAS[era+1].cost,busy=b.q.some(q=>q.type.startsWith('era'));h+=gbtn('era',ic('crown','gim'),'Era '+ROMAN[era+1],busy?'…':costTxt(c),{off:busy||!canPay(c)});}
       h+='</div>';}
-    if(b.q.length){h+=`<div class="qrow">${b.q.map(q=>q.job?ic(JOBS[q.job].ic,'qi'):q.type.startsWith('era')?ic('crown','qi'):q.type.startsWith('up:')?ic(UPG[q.type.slice(3)].ic,'qi'):uThumb(q.type,'qi')).join('')}<span id="qinfo"></span><button class="ib" data-a="cancelq">${ic('undo','ibi')}</button></div><div class="bar"><div id="qbar"></div></div>`;}
+    if(b.q.length){h+=`<div class="qrow">${b.q.map((q,i)=>`<span class="qw" ${i?'':'id="q0"'}>`+(q.job?ic(JOBS[q.job].ic,'qi'):q.type.startsWith('era')?ic('crown','qi'):q.type.startsWith('up:')?ic(UPG[q.type.slice(3)].ic,'qi'):uThumb(q.type,'qi'))+'</span>').join('')}<span id="qinfo"></span><button class="ib" data-a="cancelq">${ic('undo','ibi')}</button></div>`;}
   }
   if(!h&&selR){const r=selR,isN=r.kind==='n';if(isN)nodeSpr(r);const img=`<img class="pt" src="sprites/${isN?'r_'+r.sv:'a_'+animalImg(r)}.png">`;
     const amt=isN?r.amt:r.carc?r.food:r.hp,max=isN?r.max:r.carc?r.max:r.maxhp,wk=resWorkers(r);
@@ -1591,7 +1655,11 @@ function renderPanel(){
     const hint=isN?'Seleciona aldeões e toca aqui para recolher.':r.carc?(r.max?'Seleciona aldeões e toca na carcaça para recolher a carne (mais rápido que arbustos e quintas). Estraga-se com o tempo!':'Este animal não dá comida.'):
       ADEF[r.type].hostile?'Perigoso! Ataca aldeões sozinhos. Manda tropas.':ADEF[r.type].fight?'Defende-se quando é atacado — caça com 3–4 aldeões ou tropas.':r.type==='deer'?'Foge quando é atacado ou quando há tropas perto. Seleciona aldeões e toca nele para caçar.':'Presa fácil. Seleciona aldeões e toca nela para caçar.';
     h+=`<div class="pinfo">${hint}</div>`;}
-  P.innerHTML=h;P.classList.toggle('hidden',!h);
+  const kind=buildMode?'bm'+buildMode:buildOpen?'bo':jobsOpen?'jo':armyOpen?'ao':sel.length?'s'+sel.map(u=>u.id).join(','):selB?'b'+selB.id:selR?'r'+(selR.id||selR.tx+','+selR.ty):'';
+  if(h)h=`<button class="grip" data-a="mini"><i></i></button>`+h;
+  P.innerHTML=h;P.classList.toggle('hidden',!h);P.classList.toggle('min',panelMin);
+  if(kind!==lastKind){lastKind=kind;P.classList.remove('pop');void P.offsetWidth;P.classList.add('pop');prevOff={};}
+  for(const b of P.querySelectorAll('.gb')){const k=b.dataset.a,off=b.classList.contains('off');if(prevOff[k]===true&&!off){b.classList.add('glow');}prevOff[k]=off;}
   if(IS_DESK())[...P.querySelectorAll('.gb')].forEach((b,i)=>{if(HK[i]){b.insertAdjacentHTML('beforeend','<kbd>'+HK[i].toUpperCase()+'</kbd>');b.title='Tecla '+HK[i].toUpperCase();}});
 }
 $('panel').addEventListener('click',e=>{const el=e.target.closest('[data-a]');if(!el)return;const [a,arg]=el.dataset.a.split(':');act(a,arg);});
@@ -1643,6 +1711,7 @@ function act(a,arg){
     pay(c);selB.q.push({type:'up:'+arg,t:0,time:20+lv*10,paid:1,cost:c});}
   else if(a==='desel'){sel=[];selB=null;selR=null;infoOpen=false;}
   else if(a==='closej'){jobsOpen=false;}
+  else if(a==='mini'){panelMin=!panelMin;}
   else if(a==='closea'){armyOpen=false;pickCamp=false;}
   else if(a==='jobp'||a==='jobm'){const c=jobCounts();let from,to;if(a==='jobp'){to=arg;from=Object.keys(c).filter(k=>k!==arg&&c[k]>0).sort((p,q)=>c[q]-c[p])[0];}else{from=arg;to=arg==='comida'?'lenhador':'comida';}
     if(!from||!c[from]){toast(a==='jobp'?'Não há aldeões para mudar — treina mais no Centro':'Não há '+JOBS[arg].nome+'es','','idle');return;}
@@ -1657,6 +1726,7 @@ function act(a,arg){
   else if(a==='stop'){for(const u of sel){u.state='idle';u.target=null;}}
   panelKey='';
 }
+document.querySelectorAll('#top .res').forEach(e=>e.addEventListener('click',()=>{if(!running)return;jobsOpen=true;armyOpen=false;sel=[];selB=null;selR=null;buildMode=null;ghost=null;buildOpen=false;panelMin=false;panelKey='';}));
 $('bBuild').onclick=()=>{if(!running)return;buildMode=null;ghost=null;wallStart=null;buildOpen=!buildOpen;selB=null;selR=null;armyOpen=jobsOpen=false;panelKey='';};
 $('bIdle').onclick=()=>{if(!running)return;jobsOpen=!jobsOpen;armyOpen=false;sel=[];selB=null;selR=null;buildMode=null;ghost=null;buildOpen=false;panelKey='';};
 $('bArmy').onclick=()=>{if(!running)return;armyOpen=!armyOpen;jobsOpen=false;pickCamp=false;sel=[];selB=null;selR=null;buildMode=null;ghost=null;buildOpen=false;panelKey='';if(armyOpen&&!units.some(u=>u.team===0&&!u.dead&&u.grp))toast('Ainda não tens exército — constrói um Quartel','','army');};
@@ -1679,6 +1749,7 @@ $('bRestart').onclick=()=>{if($('bRestart').dataset.c!=='1'){$('bRestart').datas
 
 function updUI(){
   $('rw').textContent=Math.floor(R.w);$('rf').textContent=Math.floor(R.f);$('rg').textContent=Math.floor(R.g);$('rs').textContent=Math.floor(R.s);
+  {const jc=jobCounts();for(const [id,k] of [['kw','lenhador'],['kf','comida'],['kg','ouro'],['ks','pedra'],['kb','construtor']]){const e=$(id);e.textContent=jc[k];e.classList.toggle('zero',!jc[k]);}}
   const pu=popUsed(false),pc=popCap();$('rp').textContent=pu+'/'+pc;$('rp').classList.toggle('full',pu>=pc);
   const ic1=units.filter(u=>u.team===0&&u.type==='aldeao'&&u.state==='idle').length;$('idlec').textContent=ic1;$('idlec').classList.toggle('hidden',!ic1);
   const ac=units.filter(u=>u.team===0&&u.type!=='aldeao').length;$('armyc').textContent=ac;$('armyc').classList.toggle('hidden',!ac);
@@ -1686,9 +1757,9 @@ function updUI(){
   if(alerts.length&&alerts.some(a=>gt-a.t>=14))renderAlerts();
   if(sel.length||selB||selR||buildMode||buildOpen){if(armyOpen||jobsOpen){armyOpen=jobsOpen=false;}}
   if(selR&&(sel.length||selB||buildMode||buildOpen||(selR.kind==='n'?selR.dead:selR.gone)))selR=null;
-  const key=[armyOpen?'A'+pSq.state+(atkTarget&&atkTarget.id)+pickCamp+units.filter(u=>u.team===0&&!u.dead&&u.grp).map(u=>u.type[0]+u.grp[0]).sort().join(''):'',jobsOpen?'J'+JSON.stringify(jobCounts())+units.filter(u=>u.team===0&&u.type==='aldeao'&&u.state==='idle').length:'',autoSp.length+':'+spotI,sel.map(u=>u.job||u.grp||'').join(''),selR?selR.id||selR.tx+','+selR.ty:'',selR?Math.ceil(selR.kind==='n'?selR.amt:selR.carc?selR.food:selR.hp)+'|'+!!selR.carc+'|'+resWorkers(selR)+'|'+(selR.ct>45):'',JSON.stringify(UP),buildMode,buildOpen,buildTab,infoOpen,ghost&&(ghost.line?ghost.line.length+':'+(ghost.end?ghost.end.tx+','+ghost.end.ty:''):ghost.tx+','+ghost.ty+ghost.ok),!!wallStart,sel.map(u=>u.id+u.state+u.wpn).join(','),selB&&selB.id+'|'+selB.built+'|'+selB.q.length+'|'+Math.ceil(selB.hp/20)+'|'+Math.ceil(selB.food/10),era,sel.length===1?Math.ceil(sel[0].hp):'',(sel.find(u=>u.hero)||{}).abT>0?Math.ceil(sel.find(u=>u.hero).abT):'r',selB&&selB.type==='academia'?(heroDead?Math.ceil(gt-heroDead.t):'')+heroBusy():'',Math.floor(R.w/10),Math.floor(R.f/10),Math.floor(R.g/10),Math.floor(R.s/10)].join('#');
-  if(key!==panelKey){panelKey=key;renderPanel();}
-  if(selB&&selB.q.length){const it=selB.q[0];const bar=$('qbar');if(bar){bar.style.width=(100*it.t/it.time)+'%';bar.style.background=it.wait?'#ef4444':'#7fc25a';}const qi=$('qinfo');if(qi)qi.innerHTML=it.wait?ic('pop','si')+' cheio':'';}
+  const key=[panelMin,armyOpen?'A'+pSq.state+(atkTarget&&atkTarget.id)+pickCamp+units.filter(u=>u.team===0&&!u.dead&&u.grp).map(u=>u.type[0]+u.grp[0]).sort().join(''):'',jobsOpen?'J'+JSON.stringify(jobCounts())+units.filter(u=>u.team===0&&u.type==='aldeao'&&u.state==='idle').length:'',autoSp.length+':'+spotI,sel.map(u=>u.job||u.grp||'').join(''),selR?selR.id||selR.tx+','+selR.ty:'',selR?Math.ceil(selR.kind==='n'?selR.amt:selR.carc?selR.food:selR.hp)+'|'+!!selR.carc+'|'+resWorkers(selR)+'|'+(selR.ct>45):'',JSON.stringify(UP),buildMode,buildOpen,buildTab,infoOpen,ghost&&(ghost.line?ghost.line.length+':'+(ghost.end?ghost.end.tx+','+ghost.end.ty:''):ghost.tx+','+ghost.ty+ghost.ok),!!wallStart,sel.map(u=>u.id+u.state+u.wpn).join(','),selB&&selB.id+'|'+selB.built+'|'+selB.q.length+'|'+Math.ceil(selB.hp/20)+'|'+Math.ceil(selB.food/10),era,sel.length===1?Math.ceil(sel[0].hp):'',(sel.find(u=>u.hero)||{}).abT>0?Math.ceil(sel.find(u=>u.hero).abT):'r',selB&&selB.type==='academia'?(heroDead?Math.ceil(gt-heroDead.t):'')+heroBusy():'',Math.floor(R.w/10),Math.floor(R.f/10),Math.floor(R.g/10),Math.floor(R.s/10)].join('#');
+  if(key!==panelKey){panelKey=key;renderPanel();$('bBuild').classList.toggle('on',!!(buildOpen||buildMode));$('bIdle').classList.toggle('on',jobsOpen);$('bArmy').classList.toggle('on',armyOpen);$('bBase').classList.toggle('on',!!(selB&&selB.type==='centro'));}
+  if(selB&&selB.q.length){const it=selB.q[0];const q0=$('q0');if(q0)q0.style.background=`conic-gradient(${it.wait?'#ef4444':'#ffd23a'} ${Math.round(360*it.t/it.time)}deg,#0000 0)`;const qi=$('qinfo');if(qi)qi.innerHTML=it.wait?ic('pop','si')+' cheio':'';}
 }
 function endGame(win){if(over)return;over=true;setTimeout(()=>{$('endt').innerHTML=ic(win?'trophy':'skull','endi')+(win?'Vitória!':'Derrota');
   const m=Math.floor(gt/60);$('ends').innerHTML=(win?'Destruíste '+GOAL+' acampamentos inimigos!':'O teu Centro da Cidade caiu.')+`<br>${ic('time','si')}${m} min · ${ic('camp','si')}${campsKilled} · ${ic('crown','si')}${ERANAME[era]}`;

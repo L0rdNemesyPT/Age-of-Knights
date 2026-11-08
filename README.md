@@ -86,3 +86,8 @@ Barra de baixo com Construir, Aldeões, Exército, Base e Menu. Ícones e efeito
 - **Muralhar a base**: muralha com 4 portões à volta da base, conforme os recursos (madeira ou pedra).
 - **Exército**: grupo de Defesa (patrulha a cidade) e grupo de Ataque (ataca o acampamento mais próximo ou o escolhido, recua se estiver a perder).
 - No PC continuas a poder dar ordens com o rato.
+
+## Novo visual
+- Menus em pixel art: madeira, pergaminho, fitas e botões de madeira/ouro.
+- A barra de cima mostra quantos aldeões trabalham em cada recurso (toca para mudar profissões).
+- Exército em duas colunas (Defesa | Ataque), fila de treino com anel de progresso e painel minimizável.
