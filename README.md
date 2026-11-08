@@ -16,6 +16,24 @@ Fácil, Moderada ou Difícil — escolhe no início e muda a qualquer momento no
 - **Moderada:** raids em grupo que evitam as tuas defesas e escolhem alvos com vantagem.
 - **Difícil:** raids maiores que contrariam o teu exército, caçam aldeões e recuam quando perdem.
 
+## Controlos
+**Telemóvel:** toca para selecionar e dar ordens · toque longo + arrastar = seleção em caixa · pinça = zoom.
+
+**PC (estilo Age of Empires):** clique esquerdo seleciona (arrastar = caixa, Shift = juntar, duplo clique = todos iguais) · clique direito dá ordens · WASD/setas ou rato na borda move a câmara · roda = zoom.
+
+| Tecla | Ação |
+|---|---|
+| B | Construir |
+| H | Centro da Cidade |
+| . / , | Aldeão / tropa parada seguinte |
+| Ctrl+1–9 / 1–9 | Criar / escolher grupo |
+| Espaço | Ir à seleção |
+| Q E R T F G Z X C V | Botões do painel |
+| Tab | Mudar categoria (Construir) |
+| Delete | Apagar seleção |
+| P / F3 | Pausa |
+| Esc / F10 | Cancelar / Menu |
+
 ## Raças
 Humanos, Orcs, Elfos, Goblins e Anões — cada uma com bónus próprios.
 
