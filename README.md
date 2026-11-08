@@ -74,3 +74,8 @@ Barra de baixo com Construir, Aldeões, Exército, Base e Menu. Ícones e efeito
 - Heróis sobem de nível (até 5), dão uma **aura** às tropas próximas e têm um **poder especial** (automático em combate ou no botão / tecla Q).
 - Se o herói morrer, revive na Academia ao fim de 60s por metade do preço.
 - Acampamentos inimigos fortes também geram heróis, em todas as dificuldades.
+
+## Animais e Caça
+- Ovelhas, veados e javalis dão comida; lobos selvagens são perigosos.
+- Seleciona aldeões e toca num animal para caçar; depois recolhem a carne da carcaça (mais rápido, mas estraga-se com o tempo).
+- Toca numa árvore, mina, pedreira, arbusto ou carcaça para ver quanto resta (no PC basta passar o rato por cima).
