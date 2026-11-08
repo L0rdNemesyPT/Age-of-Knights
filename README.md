@@ -91,3 +91,7 @@ Barra de baixo com Construir, Aldeões, Exército, Base e Menu. Ícones e efeito
 - Menus em pixel art: madeira, pergaminho, fitas e botões de madeira/ouro.
 - A barra de cima mostra quantos aldeões trabalham em cada recurso (toca para mudar profissões).
 - Exército em duas colunas (Defesa | Ataque), fila de treino com anel de progresso e painel minimizável.
+
+## Animações
+- Todas as unidades das 5 raças e os 10 heróis têm animações com fotogramas: andar, atacar, ser atingido e morrer.
+- O que não tem fotogramas (ex.: Lobos Espirituais) usa animação por código: pernas, golpes, recuo, respiração e queda.
